@@ -41,7 +41,12 @@ gulp.task('styles', function() {
 // Scripts & JS Libraries
 gulp.task('scripts', function() {
 	return gulp.src([
-		// 'node_modules/jquery/dist/jquery.min.js', // Optional jQuery plug-in (npm i --save-dev jquery)
+		'app/libs/animate/animate-css.js',
+		'app/libs/jqBootstrapValidation/jqBootstrapValidation.js',
+		'app/libs/magnific-popup/jquery.magnific-popup.min.js',
+		'app/libs/parallax/parallax.min.js',
+		'app/libs/jquery-3.3.1.min.js',
+
 		'app/js/_lazy.js', // JS library plug-in example
 		'app/js/_custom.js', // Custom scripts. Always at the end
 		])

@@ -2,6 +2,8 @@
 @import fonts
 @import libs
 
+// basic custom style
+
 ::placeholder
 	color: #666
 
@@ -16,47 +18,133 @@ input, textarea
 	&:required:valid
 		border-color: green
 
-body
-	font-size: 16px
-	min-width: 320px
-	position: relative
-	line-height: 1.65
-	font-family: 'Roboto', sans-serif
-	overflow-x: hidden
-	color: $text
-
-// Custom Sass / Remove before use
-
-.container
-	max-width: 700px
-	padding:
-		right: $gutter/2
-		left: $gutter/2
-	margin:
-		left: auto
-		right: auto
-
 .img-responsive
 	display: block
 	max-width: 100%
 	height: auto
 
-.example-grid
-	display: grid
-	grid-gap: $gutter
-	grid-template-columns: 1fr 1fr
-	grid-template-areas: "left right"
-	> div:first-child
-		grid-area: left
-	> div:last-child
-		grid-area: right
-	+media-breakpoint-down(xs)
-		display: block
-		> div
-			padding: $gutter/2 0
-	
-.example-img
-	width: 100%
+.hidden
+	display: none
 
-.parent // Lazy Load Placeholder Generator: https://webdesign-master.ru/services/lazy/
-	background-image: url(data:image/gif;base64,R0lGODlhCgAIAIABAN3d3f///yH5BAEAAAEALAAAAAAKAAgAAAINjAOnyJv2oJOrVXrzKQA7)
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: 'Raleway', sans-serif
+	overflow-x: hidden
+	color: $text
+
+h2
+	font-weight: 500
+
+// custom styles for site
+
+header
+	position: relative
+	background-color: #000
+	width: 100%
+	overflow: hidden
+	height: 100vh
+	&.no-before:before
+		content: none
+	&:before
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		background: linear-gradient(to right, #4AA5FA,#f00,#0f0,#0ff,#FF0022,#CF0000)
+		mix-blend-mode: color
+		pointer-events: none
+		z-index: 1
+	video
+		object-fit: cover
+		padding-bottom: 100px
+		z-index: 100
+
+.main-head
+	background-image: url(../img/_src/main-bg.jpg)
+	background-size: cover
+	background-position: top center
+	min-height: 100vh
+	z-index: 9999
+
+.text-effect
+	margin: 0
+	padding: 0
+	position: absolute
+	top: 50%
+	transform: translateY(-50%)
+	width: 100%
+	text-align: center
+	font-family: sans-serif
+	color: #ddd
+	font-size: 5em
+	line-height: 1.4
+	letter-spacing: 0.2em
+	div
+		display: block
+		span
+			&:nth-child(1)
+			animation-delay: 1s
+			&:nth-child(2)
+				animation-delay: 2s
+			&:nth-child(3)
+				animation-delay: 2.5s
+			&:nth-child(4)
+				animation-delay: 3s
+			&:nth-child(5)
+				animation-delay: 3.5s
+			&:nth-child(6)
+				animation-delay: 4s
+		&.surname span:nth-child(1)
+			animation-delay: 1s
+		&.surname span:nth-child(2)
+			animation-delay: 2s
+		&.surname span:nth-child(3)
+			animation-delay: 2.3s
+		&.surname span:nth-child(4)
+			animation-delay: 2.5s
+		&.surname span:nth-child(5)
+			animation-delay: 3s
+		&.surname span:nth-child(6)
+			animation-delay: 3.7s
+		&.surname span:nth-child(7)
+			animation-delay: 4.2s
+		&.surname span:nth-child(8)
+			animation-delay: 5s
+		&.surname span:nth-child(9)
+			animation-delay: 6.2s
+
+h1 div span,
+h1 div.surname span
+	opacity: 0
+	display: inline-block
+	filter: blur(1px)
+	animation: animate 1s linear forwards
+
+.description
+	margin: 0
+	padding: 0
+	position: absolute
+	top: 70%
+	transform: translateY(-50%)
+	width: 100%
+	text-align: center
+	font-family: sans-serif
+	color: #ddd
+	font-size: 1.5em
+	letter-spacing: 0.2em
+
+@keyframes animate
+	0%
+		filter: blur(10px)
+		opacity: 0
+		transform: rotateY(90deg)
+	100%
+		filter: blur(0)
+		opacity: 1
+		transform: rotateY(0deg)
+
